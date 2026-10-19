@@ -56,7 +56,7 @@
     "beforeend",
     '<footer><div class="w"><p><strong>Help Tech</strong> – ' +
       T.t +
-      '</p><p>Association Help Tech – 12 rue sainte George, 63000 Clermont-Ferrand, France</p><p><a target="_blank" rel="noopener noreferrer" href="cgu' +
+      '</p><p>Association Help Tech </p><p><a target="_blank" rel="noopener noreferrer" href="cgu' +
       s +
       '.html">' +
       T.cgu +
