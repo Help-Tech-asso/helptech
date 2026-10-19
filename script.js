@@ -27,9 +27,10 @@
         cgv: "CGV",
         t: "Association à but non lucratif – Aide gratuite au numérique",
       };
-  var other = en
-    ? p.replace("-en.html", ".html")
-    : p.replace(".html", "-en.html");
+  var hasHtmlExtension = /\.html$/i.test(p);
+  var page = p.replace(/\.html$/i, "");
+  var other = en ? page.replace(/-en$/i, "") : page + "-en";
+  if (hasHtmlExtension) other += ".html";
   document.body.insertAdjacentHTML(
     "afterbegin",
     '<header><div class="w"><a class="logo" href="index' +
