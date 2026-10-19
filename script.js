@@ -46,8 +46,6 @@
       (en ? "fr" : "en") +
       '" lang="' +
       (en ? "fr" : "en") +
-      '" lang="' +
-      (en ? "fr" : "en") +
       '">' +
       T.l +
       "</a></div></header>",
@@ -68,7 +66,13 @@
   );
   var h = document.querySelector("header");
   h.style.transition = "transform .3s";
+  var lastScrollY = window.scrollY;
   window.addEventListener("scroll", function () {
-    h.style.transform = window.scrollY > 50 ? "translateY(-100%)" : "none";
+    var currentScrollY = window.scrollY;
+    h.style.transform =
+      currentScrollY <= 50 || currentScrollY < lastScrollY
+        ? "none"
+        : "translateY(-100%)";
+    lastScrollY = currentScrollY;
   });
 })();
