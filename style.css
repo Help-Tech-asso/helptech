@@ -66,10 +66,18 @@ header .w {
   padding-bottom: 10px;
 }
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-weight: 700;
   font-size: 1.4rem;
   text-decoration: none;
   color: var(--fg);
+}
+.logo img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
 }
 .logo span {
   color: var(--pri);

@@ -35,7 +35,7 @@
     "afterbegin",
     '<header><div class="w"><a class="logo" href="index' +
       s +
-      '.html">💻 Help <span>Tech</span></a><nav aria-label="Menu">' +
+      '.html"><img src="Logo%20principal-selection.png" alt="" />Help <span>Tech</span></a><nav aria-label="Menu">' +
       T.n
         .map(function (x) {
           return '<a href="index' + s + ".html" + x[0] + '">' + x[1] + "</a>";
