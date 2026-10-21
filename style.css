@@ -316,3 +316,118 @@ summary:focus {
 .bubble .center {
   display: block;
 }
+
+.contact-form {
+  --f-bg: #ffffff; /* form background */
+  --f-field: #f0f1f3; /* field background */
+  --f-bd: #c4c9d1; /* field border */
+
+  max-width: 640px;
+  margin: 0 auto;
+  display: grid;
+  gap: 20px;
+  background: var(--f-bg);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+}
+@media (prefers-color-scheme: dark) {
+  .contact-form {
+    --f-bg: #2a2d33;
+    --f-field: #3a3e46;
+    --f-bd: #5b616d;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+.field label {
+  font-weight: 700;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  max-width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  color: var(--fg);
+  background: var(--f-field);
+  border: 2px solid var(--f-bd);
+  border-radius: 10px;
+}
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 3px solid var(--acc);
+  outline-offset: 2px;
+  border-color: var(--pri);
+}
+
+fieldset.topic {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+fieldset.topic legend {
+  font-weight: 700;
+  margin-bottom: 8px;
+  padding: 0;
+}
+fieldset.topic label {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  background: var(--f-field);
+  border: 2px solid var(--f-bd);
+  border-radius: 10px;
+  cursor: pointer;
+}
+fieldset.topic input {
+  width: 1.3rem;
+  height: 1.3rem;
+  accent-color: var(--pri);
+}
+
+.consent {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  color: var(--mut);
+}
+.consent input {
+  width: 1.4rem;
+  height: 1.4rem;
+  flex-shrink: 0;
+  accent-color: var(--pri);
+}
+
+button.btn {
+  border: 0;
+  font: inherit;
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  justify-self: end;
+}
+.hp {
+  position: absolute;
+  left: -9999px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .btn {
+    color: #12161f;
+  }
+  .btn.alt {
+    color: var(--pri);
+  }
+}

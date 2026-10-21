@@ -194,17 +194,117 @@
       </section>
 
       <section id="contact">
-        <div class="w center">
-          <h2>✉️ N'attendez plus, écrivez nous !</h2>
-          <p class="big">Écrivez-nous, on répond avec plaisir 😊</p>
-          <p>
-            <a
-              class="btn"
-              href="mailto:contact@assohelptech.org"
-              target="_blank"
-              >📧 contact@assohelptech.org</a
+        <div class="w">
+          <h2 class="center">N'attendez plus, écrivez-nous !</h2>
+          <p class="center big">On répond avec plaisir 😊</p>
+
+          <form
+            class="contact-form card"
+            action="https://SERVICE-URL-HERE"
+            method="POST">
+            <fieldset class="topic">
+              <legend>Que souhaitez-vous ? (un ou plusieurs choix)</legend>
+              <label
+                ><input type="checkbox" value="Aide informatique" /> Aide
+                informatique</label
+              >
+              <label
+                ><input type="checkbox" value="Création de site internet" />
+                Création de site internet</label
+              >
+              <label
+                ><input type="checkbox" value="Autre question" /> Autre
+                question</label
+              >
+            </fieldset>
+
+            <div class="field">
+              <label for="name">Votre nom</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                autocomplete="name"
+                required />
+            </div>
+
+            <div class="field">
+              <label for="email">Votre courriel</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                required />
+            </div>
+
+            <div class="field">
+              <label for="message">Votre message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                required></textarea>
+            </div>
+
+            <input
+              type="text"
+              name="website"
+              class="hp"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true" />
+
+            <label class="consent">
+              <input type="checkbox" required />
+              <span
+                >J'accepte que Help Tech utilise mes données pour me répondre
+                (<a href="/cgu.html#donnees" target="_blank"
+                  >politique de confidentialité</a
+                >).</span
+              >
+            </label>
+
+            <button type="submit" class="btn">Envoyer</button>
+
+            <input type="hidden" name="topics" id="topics" />
+            <input
+              type="hidden"
+              name="subject"
+              id="subject"
+              value="Help Tech – Nouveau message" />
+          </form>
+
+          <p class="center">
+            Vous préférez nous écrire directement ? 📧
+            <a href="mailto:contact@assohelptech.org"
+              >contact@assohelptech.org</a
             >
           </p>
+
+          <script>
+            var boxes = document.querySelectorAll(
+              '.topic input[type="checkbox"]',
+            );
+
+            function updateTopics() {
+              var chosen = [];
+              boxes.forEach(function (box) {
+                if (box.checked) chosen.push(box.value);
+              });
+              document.getElementById("topics").value = chosen.join(", ");
+              document.getElementById("subject").value =
+                "Help Tech – " + (chosen.join(" + ") || "Nouveau message");
+              boxes[0].setCustomValidity(
+                chosen.length ? "" : "Choisissez au moins une option.",
+              );
+            }
+
+            boxes.forEach(function (box) {
+              box.addEventListener("change", updateTopics);
+            });
+            updateTopics();
+          </script>
         </div>
       </section>
     </main>
