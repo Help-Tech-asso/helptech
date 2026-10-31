@@ -196,25 +196,35 @@
 
           <form
             class="contact-form card"
-            action="https://SERVICE-URL-HERE"
+            action="https://api.web3forms.com/submit"
             method="POST">
+            <input
+              type="hidden"
+              name="access_key"
+              value="4f4742d7-4ba1-44c9-997f-1ce9dd41cd60" />
+            <input
+              type="hidden"
+              name="redirect"
+              value="https://assohelptech.org/merci.html" />
+
             <fieldset class="topic">
-              <legend>What do you need? (one or more choices)</legend>
+              <legend>Que souhaitez-vous ? (un ou plusieurs choix)</legend>
               <label
-                ><input type="checkbox" value="IT support" /> IT support</label
+                ><input type="checkbox" value="Aide informatique" /> Aide
+                informatique</label
               >
               <label
-                ><input type="checkbox" value="Website creation" /> Website
-                creation</label
+                ><input type="checkbox" value="Création de site internet" />
+                Création de site internet</label
               >
               <label
-                ><input type="checkbox" value="Other question" /> Other
+                ><input type="checkbox" value="Autre question" /> Autre
                 question</label
               >
             </fieldset>
 
             <div class="field">
-              <label for="name">Your name</label>
+              <label for="name">Votre nom</label>
               <input
                 type="text"
                 id="name"
@@ -224,7 +234,7 @@
             </div>
 
             <div class="field">
-              <label for="email">Your email</label>
+              <label for="email">Votre courriel</label>
               <input
                 type="email"
                 id="email"
@@ -234,7 +244,7 @@
             </div>
 
             <div class="field">
-              <label for="message">Your message</label>
+              <label for="message">Votre message</label>
               <textarea
                 id="message"
                 name="message"
@@ -243,8 +253,8 @@
             </div>
 
             <input
-              type="text"
-              name="website"
+              type="checkbox"
+              name="botcheck"
               class="hp"
               tabindex="-1"
               autocomplete="off"
@@ -253,22 +263,21 @@
             <label class="consent">
               <input type="checkbox" required />
               <span
-                >I agree that Help Tech uses my data to reply to me (<a
-                  href="/cgu-en.html#data"
-                  target="_blank"
-                  >privacy policy</a
+                >J'accepte que Help Tech utilise mes données pour me répondre
+                (<a href="/cgu.html#donnees" target="_blank"
+                  >politique de confidentialité</a
                 >).</span
               >
             </label>
 
-            <button type="submit" class="btn">Send</button>
+            <button type="submit" class="btn">Envoyer</button>
 
             <input type="hidden" name="topics" id="topics" />
             <input
               type="hidden"
               name="subject"
               id="subject"
-              value="[EN] Help Tech – New message" />
+              value="Help Tech – Nouveau message" />
           </form>
 
           <p class="center">
