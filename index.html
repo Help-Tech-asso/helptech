@@ -200,8 +200,14 @@
 
           <form
             class="contact-form card"
-            action="https://SERVICE-URL-HERE"
+            action="https://api.web3forms.com/submit"
             method="POST">
+            <input type="hidden" name="access_key" value="YOUR-ACCESS-KEY" />
+            <input
+              type="hidden"
+              name="redirect"
+              value="https://assohelptech.org/merci.html" />
+
             <fieldset class="topic">
               <legend>Que souhaitez-vous ? (un ou plusieurs choix)</legend>
               <label
@@ -248,8 +254,8 @@
             </div>
 
             <input
-              type="text"
-              name="website"
+              type="checkbox"
+              name="botcheck"
               class="hp"
               tabindex="-1"
               autocomplete="off"
