@@ -190,17 +190,117 @@
       </section>
 
       <section id="contact">
-        <div class="w center">
-          <h2>✉️ Don't wait, write to us!</h2>
-          <p class="big">Write to us, we're happy to reply 😊</p>
-          <p>
-            <a
-              class="btn"
-              href="mailto:contact@assohelptech.org"
-              target="_blank"
-              >📧 contact@assohelptech.org</a
+        <div class="w">
+          <h2 class="center">✉️ Don't wait, write to us!</h2>
+          <p class="center big">Write to us, we'll be happy to reply 😊</p>
+
+          <form
+            class="contact-form card"
+            action="https://SERVICE-URL-HERE"
+            method="POST">
+            <fieldset class="topic">
+              <legend>What do you need? (one or more choices)</legend>
+              <label
+                ><input type="checkbox" value="IT support" /> IT support</label
+              >
+              <label
+                ><input type="checkbox" value="Website creation" /> Website
+                creation</label
+              >
+              <label
+                ><input type="checkbox" value="Other question" /> Other
+                question</label
+              >
+            </fieldset>
+
+            <div class="field">
+              <label for="name">Your name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                autocomplete="name"
+                required />
+            </div>
+
+            <div class="field">
+              <label for="email">Your email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                required />
+            </div>
+
+            <div class="field">
+              <label for="message">Your message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                required></textarea>
+            </div>
+
+            <input
+              type="text"
+              name="website"
+              class="hp"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true" />
+
+            <label class="consent">
+              <input type="checkbox" required />
+              <span
+                >I agree that Help Tech uses my data to reply to me (<a
+                  href="/cgu-en.html#data"
+                  target="_blank"
+                  >privacy policy</a
+                >).</span
+              >
+            </label>
+
+            <button type="submit" class="btn">Send</button>
+
+            <input type="hidden" name="topics" id="topics" />
+            <input
+              type="hidden"
+              name="subject"
+              id="subject"
+              value="[EN] Help Tech – New message" />
+          </form>
+
+          <p class="center">
+            Prefer to write directly? 📧
+            <a href="mailto:contact@assohelptech.org"
+              >contact@assohelptech.org</a
             >
           </p>
+
+          <script>
+            var boxes = document.querySelectorAll(
+              '.topic input[type="checkbox"]',
+            );
+
+            function updateTopics() {
+              var chosen = [];
+              boxes.forEach(function (box) {
+                if (box.checked) chosen.push(box.value);
+              });
+              document.getElementById("topics").value = chosen.join(", ");
+              document.getElementById("subject").value =
+                "[EN] Help Tech – " + (chosen.join(" + ") || "New message");
+              boxes[0].setCustomValidity(
+                chosen.length ? "" : "Please choose at least one option.",
+              );
+            }
+
+            boxes.forEach(function (box) {
+              box.addEventListener("change", updateTopics);
+            });
+            updateTopics();
+          </script>
         </div>
       </section>
     </main>
