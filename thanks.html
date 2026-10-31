@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Thank you! – Help Tech</title>
+    <link rel="icon" type="image/png" href="Logo%20principal-selection.png" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .thanks {
+        text-align: center;
+        padding: 60px 0;
+      }
+      .check {
+        width: 120px;
+        height: 120px;
+      }
+      .check circle,
+      .check path {
+        fill: none;
+        stroke: var(--pri);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .check circle {
+        stroke-width: 6;
+        stroke-dasharray: 302;
+        stroke-dashoffset: 302;
+        animation: draw 0.8s ease forwards;
+      }
+      .check path {
+        stroke-width: 8;
+        stroke-dasharray: 70;
+        stroke-dashoffset: 70;
+        animation: draw 0.5s 0.7s ease forwards;
+      }
+      @keyframes draw {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+      .confetti {
+        position: fixed;
+        top: -2rem;
+        pointer-events: none;
+        animation: fall linear forwards;
+      }
+      @keyframes fall {
+        to {
+          transform: translateY(110vh) rotate(360deg);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .check circle,
+        .check path {
+          animation: none;
+          stroke-dashoffset: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="w thanks">
+        <svg
+          class="check"
+          viewBox="0 0 120 120"
+          role="img"
+          aria-label="Message sent">
+          <circle cx="60" cy="60" r="48" />
+          <path d="M38 62 L54 78 L84 44" />
+        </svg>
+
+        <h1>Thank you! Your message has been sent 🎉</h1>
+        <p class="big">We'll reply as soon as we can, by email.</p>
+        <p class="note">
+          📬 If you don't see our reply, please also check your
+          <strong>spam or junk folder</strong>.
+        </p>
+        <p>
+          <a class="btn" href="/en.html">← Back to the homepage</a>
+        </p>
+      </div>
+    </main>
+
+    <script>
+      (function () {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+          return;
+
+        var pieces = ["🎉", "✨", "⭐"];
+
+        for (var i = 0; i < 24; i++) {
+          var el = document.createElement("span");
+          el.className = "confetti";
+          el.setAttribute("aria-hidden", "true");
+          el.textContent = pieces[Math.floor(Math.random() * pieces.length)];
+          el.style.left = Math.random() * 100 + "vw";
+          el.style.fontSize = 1 + Math.random() + "rem";
+          el.style.animationDuration = 2.5 + Math.random() * 2 + "s";
+          el.style.animationDelay = Math.random() * 1.2 + "s";
+          el.addEventListener("animationend", function () {
+            this.remove();
+          });
+          document.body.appendChild(el);
+        }
+      })();
+    </script>
+  </body>
+</html>
